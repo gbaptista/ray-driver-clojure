@@ -18,12 +18,13 @@
   [transporters connection {:keys [transporter]} send-to-connection!]
   (when-let [transporter-atom (get @transporters transporter)]
     (doseq [[channel-id chunks] (:channels @transporter-atom)]
-      (doseq [{:keys [id data]} chunks]
+      (doseq [{:keys [id data should]} chunks]
         (send-to-connection! connection
                              {:meta {:at (str (Instant/now)) :transporter transporter}
-                              :data {:method "from-driver/as-transporter/accumulate-chunk"
+                              :data {:method "from-driver/as-transporter/receive-chunk"
                                      :params {:channel channel-id
                                               :chunck  id
+                                              :should  should
                                               :data    data}}})))))
 
 (defn controller-synchronize!

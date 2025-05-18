@@ -9,11 +9,8 @@
 
 ; Transporter
 (defn transport!
-  ([relay transporter-atom chunck]
-   (ray-transporter/transport! relay transporter-atom chunck))
-
-  ([relay transporter-atom chunck params]
-   (ray-transporter/transport! relay transporter-atom chunck params)))
+  [relay transporter-atom chunck params]
+  (ray-transporter/transport! relay transporter-atom chunck params))
 
 ; Controller
 (defn control! [relay controller-atom property value]

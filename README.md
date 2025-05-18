@@ -2,8 +2,6 @@
 
 A [ray](https://github.com/gbaptista/ray-spec) driver implementation for Clojure.
 
-## TL;DR and Quick Start
-
 ```clojure
 (require '[com.gbaptista.ray :as ray]
          '[clojure.java.browse :refer [browse-url]])
@@ -24,11 +22,15 @@ A [ray](https://github.com/gbaptista/ray-spec) driver implementation for Clojure
  relay transporter
  {:id (ray/uuid)
   :data [{:at "2025-05-18 08:11:39.703", :value 0.05}
-         {:at "2025-05-18 08:11:39.712", :value 0.36}]})
+         {:at "2025-05-18 08:11:39.712", :value 0.36}]}
+ {:channel "A" :should "concatenate"})
 
 (browse-url (ray/url-for renderer relay @controller @transporter "table"))
 
-(ray/transport! relay transporter {:id (ray/uuid) :data (ray/synthesize 2)})
+(ray/transport!
+ relay transporter
+ {:id (ray/uuid) :data (ray/synthesize 2)}
+ {:channel "A" :should "concatenate"})
 
 (ray/control! relay controller "theme" "dark")
 ```
