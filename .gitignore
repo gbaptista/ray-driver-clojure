@@ -1,0 +1,11 @@
+src/dev/
+.data/
+
+.cpcache/
+.rebl/
+.rebel_readline_history
+
+.env
+.env.*
+!.env.example
+!.env.test

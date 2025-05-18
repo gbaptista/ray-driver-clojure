@@ -1,0 +1,9 @@
+{:deps {org.clojure/clojure {:mvn/version "1.12.0"}
+        http-kit/http-kit          {:mvn/version "2.8.0"}
+        cheshire/cheshire          {:mvn/version "6.0.0"}}
+
+ :aliases
+ {:repl {:extra-deps {com.bhauman/rebel-readline  {:mvn/version "0.1.5"}
+                      io.github.nubank/morse      {:git/tag "v2023.10.06.02"
+                                                   :git/sha "88b5ff7"}}
+         :main-opts  ["-m" "rebel-readline.main"]}}}
